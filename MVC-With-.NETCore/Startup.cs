@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FootballData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using FootballServices;
 
 namespace MVC_With_.NETCore
 {
@@ -33,6 +31,10 @@ namespace MVC_With_.NETCore
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<FootballContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FootballDataConnection")));
+            services.AddSingleton(Configuration);
+            services.AddScoped<IFootballAsset, StadiumAssetService>();
+            //42:11
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

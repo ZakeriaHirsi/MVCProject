@@ -1,0 +1,31 @@
+﻿@model MVC_With_.NETCore.Models.Catalog.AssetIndexModel
+
+<div id="assets">
+    <h3>Football Catalog</h3>
+    <div id="assetsTable">
+        <table class= "table table-condensed" id= "catalogIndexTable" >
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Creator</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var asset in Model.Assets)
+                {
+                <tr class="assetRow">
+                    <td class="">
+                        <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@asset.ID">
+                            <img src="@asset.ImageURL" class="imageCell" />
+                        </a>
+                    </td>
+                    <td class="">@asset.Title</td>
+                    <td class="">@asset.Creator</td>
+                </tr>
+                }
+            </tbody>foreach
+        </table>
+    </div>
+</div>
