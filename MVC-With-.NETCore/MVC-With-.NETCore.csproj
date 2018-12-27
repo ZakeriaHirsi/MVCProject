@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FootballData\FootballData.csproj" />
+    <ProjectReference Include="..\FootballServices\FootballServices.csproj" />
   </ItemGroup>
 
 </Project>
