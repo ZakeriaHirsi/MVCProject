@@ -50,8 +50,7 @@ namespace FootballServices
                 return __Context.StadiumAssets.OfType<Game>().Where(asset => asset.ID == id).FirstOrDefault().Publisher;
             }
 
-            return "Unknown";
-
+            return "N/A";
         }
 
         public StadiumBranch GetCurrentLocation(int id)
